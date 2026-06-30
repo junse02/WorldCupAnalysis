@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/common :: head('2026 월드컵 일정 · 분석')}"></head>
+<body>
+<header th:replace="~{fragments/common :: topbar}"></header>
+
+<main class="container">
+    <section class="hero">
+        <h1>2026 북중미 월드컵</h1>
+        <p>매 경기 일정을 한눈에. 카드를 누르면 양 팀 <strong>에이스 선수</strong>와 <strong>전술 성향</strong>을 AI가 분석해 드립니다.</p>
+        <div class="badges">
+            <span class="pill" th:classappend="${liveData} ? 'pill-on' : 'pill-off'"
+                  th:text="${liveData} ? '● 실시간 데이터 (API-Football)' : '○ 샘플 데이터 (폴백)'">데이터</span>
+            <span class="pill" th:classappend="${aiEnabled} ? 'pill-on' : 'pill-off'"
+                  th:text="${aiEnabled} ? '● AI 분석 활성화' : '○ AI 분석 비활성 (API 키 미설정)'">AI</span>
+        </div>
+    </section>
+
+    <section th:if="${matchesByDate.isEmpty()}" class="empty">
+        <p>표시할 경기가 없습니다.</p>
+    </section>
+
+    <section th:each="entry : ${matchesByDate}" class="day-block">
+        <h2 class="day-heading" th:text="${entry.key}">날짜</h2>
+        <div class="match-grid">
+            <a th:each="m : ${entry.value}" class="match-card" th:href="@{/matches/{id}(id=${m.id})}">
+                <div class="match-meta">
+                    <span class="stage" th:text="${m.stageLabel}">조별리그</span>
+                    <span class="group" th:if="${m.groupLabel != ''}" th:text="${m.groupLabel}">A조</span>
+                    <span class="status"
+                          th:classappend="${m.live} ? 'status-live' : (${m.finished} ? 'status-done' : 'status-soon')"
+                          th:text="${m.statusLabel}">예정</span>
+                </div>
+                <div class="match-teams">
+                    <div class="team">
+                        <span class="crest-badge" th:if="${m.homeCrest == null}" th:text="${m.homeTla}">HOM</span>
+                        <img class="crest" th:if="${m.homeCrest != null}" th:src="${m.homeCrest}" alt=""/>
+                        <span class="team-name" th:text="${m.homeName}">홈팀</span>
+                    </div>
+                    <div class="center">
+                        <span th:if="${m.scoreLabel != null}" class="score" th:text="${m.scoreLabel}">0 : 0</span>
+                        <span th:if="${m.scoreLabel == null}" class="kickoff" th:text="${m.timeLabel}">21:00</span>
+                        <span class="vs">VS</span>
+                    </div>
+                    <div class="team team-away">
+                        <span class="crest-badge" th:if="${m.awayCrest == null}" th:text="${m.awayTla}">AWY</span>
+                        <img class="crest" th:if="${m.awayCrest != null}" th:src="${m.awayCrest}" alt=""/>
+                        <span class="team-name" th:text="${m.awayName}">원정팀</span>
+                    </div>
+                </div>
+                <div class="card-cta">분석 보기 →</div>
+            </a>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>데이터: API-Football · 분석: Claude (Anthropic)</p>
+</footer>
+</body>
+</html>

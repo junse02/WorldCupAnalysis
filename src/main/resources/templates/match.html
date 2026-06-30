@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/common :: head('경기 분석')}"></head>
+<body>
+<header th:replace="~{fragments/common :: topbar}"></header>
+
+<main class="container">
+    <a class="back-link" th:href="@{/}">← 전체 일정</a>
+
+    <section class="match-header">
+        <div class="match-tags">
+            <span class="stage" th:text="${match.stageLabel}">조별리그</span>
+            <span class="group" th:if="${match.groupLabel != ''}" th:text="${match.groupLabel}">A조</span>
+            <span class="status"
+                  th:classappend="${match.live} ? 'status-live' : (${match.finished} ? 'status-done' : 'status-soon')"
+                  th:text="${match.statusLabel}">예정</span>
+        </div>
+        <div class="scoreboard">
+            <div class="sb-team">
+                <span class="crest-badge lg" th:if="${match.homeCrest == null}" th:text="${match.homeTla}">HOM</span>
+                <img class="crest lg" th:if="${match.homeCrest != null}" th:src="${match.homeCrest}" alt=""/>
+                <span class="sb-name" th:text="${match.homeName}">홈팀</span>
+            </div>
+            <div class="sb-center">
+                <span th:if="${match.scoreLabel != null}" class="sb-score" th:text="${match.scoreLabel}">0 : 0</span>
+                <span th:if="${match.scoreLabel == null}" class="sb-vs">VS</span>
+                <span class="sb-datetime" th:text="${match.dateLabel + ' ' + match.timeLabel}">날짜 시간</span>
+            </div>
+            <div class="sb-team">
+                <span class="crest-badge lg" th:if="${match.awayCrest == null}" th:text="${match.awayTla}">AWY</span>
+                <img class="crest lg" th:if="${match.awayCrest != null}" th:src="${match.awayCrest}" alt=""/>
+                <span class="sb-name" th:text="${match.awayName}">원정팀</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="preview">
+        <h2>🎯 맞대결 관전 포인트</h2>
+        <p th:text="${preview}">맞대결 분석</p>
+    </section>
+
+    <div class="analysis-grid">
+        <article class="analysis-card">
+            <div th:replace="~{fragments/analysis :: teamAnalysis(${homeAnalysis}, '홈')}"></div>
+        </article>
+        <article class="analysis-card">
+            <div th:replace="~{fragments/analysis :: teamAnalysis(${awayAnalysis}, '원정')}"></div>
+        </article>
+    </div>
+</main>
+
+<footer class="footer">
+    <p>데이터: API-Football · 분석: Claude (Anthropic)</p>
+</footer>
+</body>
+</html>

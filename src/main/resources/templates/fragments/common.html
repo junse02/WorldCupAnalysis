@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title th:text="${title}">월드컵 분석</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@400;500;700;900&display=swap"
+          rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+</head>
+<body>
+<header th:fragment="topbar" class="topbar">
+    <a class="brand" th:href="@{/}">
+        <span class="brand-mark">★</span>
+        <span class="brand-text">WORLD CUP <em>2026</em></span>
+    </a>
+    <nav class="topnav">
+        <a th:href="@{/}">일정</a>
+        <a th:href="@{/standings}">순위</a>
+        <a th:href="@{/bracket}">대진표</a>
+    </nav>
+    <span class="brand-sub">에이스 &amp; 전술 분석</span>
+</header>
+</body>
+</html>

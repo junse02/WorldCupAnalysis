@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="teamAnalysis(a, side)" class="ac-body">
+    <header class="ac-head">
+        <span class="ac-side" th:if="${side != ''}" th:text="${side}">홈</span>
+        <h3 th:text="${a.teamName}">팀명</h3>
+        <span class="ac-flag" th:if="${!a.generated}">분석 준비 중</span>
+    </header>
+
+    <div class="ace">
+        <span class="ace-label">⭐ 에이스</span>
+        <span class="ace-name" th:text="${a.acePlayer}">선수</span>
+        <p class="ace-desc" th:text="${a.acePlayerDescription}">설명</p>
+    </div>
+
+    <div class="meta-row">
+        <div class="meta-box">
+            <span class="meta-label">플레이 스타일</span>
+            <span class="meta-value" th:text="${a.playStyle}">스타일</span>
+        </div>
+        <div class="meta-box">
+            <span class="meta-label">예상 포메이션</span>
+            <span class="meta-value" th:text="${a.formation}">4-3-3</span>
+        </div>
+    </div>
+
+    <div class="sw-row">
+        <div class="sw strengths">
+            <h4>강점</h4>
+            <ul>
+                <li th:each="s : ${a.strengths}" th:text="${s}">강점</li>
+            </ul>
+        </div>
+        <div class="sw weaknesses">
+            <h4>약점</h4>
+            <ul>
+                <li th:each="w : ${a.weaknesses}" th:text="${w}">약점</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tactical">
+        <h4>전술 요약</h4>
+        <p th:text="${a.tacticalSummary}">요약</p>
+    </div>
+</div>
+</body>
+</html>

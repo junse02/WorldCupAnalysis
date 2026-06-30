@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/common :: head('2026 월드컵 토너먼트 대진표')}"></head>
+<body>
+<header th:replace="~{fragments/common :: topbar}"></header>
+
+<main class="container">
+    <section class="hero hero-sm">
+        <h1>토너먼트 대진표</h1>
+        <p>48개국 본선은 <strong>32강</strong>부터 토너먼트입니다. 각 조 1·2위와 성적 좋은 3위 8개 팀, 총 32팀이 진출합니다.
+            대진은 <strong>조별리그 종료 후 확정</strong>되며, 아래는 위치 기준 대진 틀입니다.</p>
+        <p class="bracket-note">※ FIFA 공식 경기번호(M73~M104)와 피더 매핑 기준입니다. 32강은 포지션 배정(조 1위 vs 3위, 2위 vs 2위), 16강 이후는 해당 경기 승자가 진출합니다. 3위 슬롯과 각 경기 진출팀은 결과에 따라 확정됩니다. 날짜는 현지 기준.</p>
+    </section>
+
+    <section class="bracket-scroll">
+        <div class="bracket">
+            <div class="round" th:each="round : ${rounds}">
+                <div class="round-head">
+                    <span class="round-name" th:text="${round.name}">라운드</span>
+                    <span class="round-date" th:text="${round.dateLabel}">날짜</span>
+                </div>
+                <div class="ties">
+                    <div class="tie" th:each="tie : ${round.ties}">
+                        <span class="tie-no" th:if="${tie.no != ''}" th:text="${tie.no}">M1</span>
+                        <div class="slot" th:text="${tie.top}">상단</div>
+                        <div class="slot-vs">vs</div>
+                        <div class="slot" th:text="${tie.bottom}">하단</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>데이터: API-Football · 분석: Gemini / Claude</p>
+</footer>
+</body>
+</html>

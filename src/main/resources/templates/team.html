@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/common :: head('팀 분석')}"></head>
+<body>
+<header th:replace="~{fragments/common :: topbar}"></header>
+
+<main class="container">
+    <a class="back-link" th:href="@{/standings}">← 순위표</a>
+
+    <section class="hero hero-sm">
+        <h1 th:text="${teamName}">팀명</h1>
+        <p>에이스 선수와 전술 성향 분석입니다.</p>
+    </section>
+
+    <article class="analysis-card team-single">
+        <div th:replace="~{fragments/analysis :: teamAnalysis(${analysis}, '')}"></div>
+    </article>
+</main>
+
+<footer class="footer">
+    <p>데이터: API-Football · 분석: Gemini / Claude</p>
+</footer>
+</body>
+</html>
