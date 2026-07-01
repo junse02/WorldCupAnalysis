@@ -22,9 +22,15 @@
                 <div class="ties">
                     <div class="tie" th:each="tie : ${round.ties}">
                         <span class="tie-no" th:if="${tie.no != ''}" th:text="${tie.no}">M1</span>
-                        <div class="slot" th:text="${tie.top}">상단</div>
+                        <div class="slot" th:with="furl=${@flags.url(tie.top)}">
+                            <img class="flag" th:if="${furl != ''}" th:src="${furl}" alt="" loading="lazy"/>
+                            <span class="slot-name" th:text="${tie.top}">상단</span>
+                        </div>
                         <div class="slot-vs">vs</div>
-                        <div class="slot" th:text="${tie.bottom}">하단</div>
+                        <div class="slot" th:with="furl=${@flags.url(tie.bottom)}">
+                            <img class="flag" th:if="${furl != ''}" th:src="${furl}" alt="" loading="lazy"/>
+                            <span class="slot-name" th:text="${tie.bottom}">하단</span>
+                        </div>
                     </div>
                 </div>
             </div>

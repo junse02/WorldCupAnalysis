@@ -34,8 +34,11 @@
                 <tr th:each="row, iter : ${entry.value.rows}"
                     th:classappend="${iter.index < 2} ? 'qual' : (${iter.index == 2} ? 'third' : 'out')">
                     <td class="c-rank" th:text="${iter.index + 1}">1</td>
-                    <td class="c-team">
-                        <a th:href="@{/teams/{n}(n=${row.team})}" th:text="${row.team}">팀</a>
+                    <td class="c-team" th:with="furl=${@flags.url(row.team)}">
+                        <a th:href="@{/teams/{n}(n=${row.team})}">
+                            <img class="flag" th:if="${furl != ''}" th:src="${furl}" alt="" loading="lazy"/>
+                            <span th:text="${row.team}">팀</span>
+                        </a>
                     </td>
                     <td th:text="${row.played}">3</td>
                     <td class="c-pts" th:text="${row.points}">9</td>
@@ -74,8 +77,11 @@
                 <tr th:each="tp : ${thirds}" th:classappend="${tp.qualified} ? 'qual' : 'out'">
                     <td class="c-rank" th:text="${tp.rank}">1</td>
                     <td th:text="${tp.group} + '조'">A조</td>
-                    <td class="c-team">
-                        <a th:href="@{/teams/{n}(n=${tp.row.team})}" th:text="${tp.row.team}">팀</a>
+                    <td class="c-team" th:with="furl=${@flags.url(tp.row.team)}">
+                        <a th:href="@{/teams/{n}(n=${tp.row.team})}">
+                            <img class="flag" th:if="${furl != ''}" th:src="${furl}" alt="" loading="lazy"/>
+                            <span th:text="${tp.row.team}">팀</span>
+                        </a>
                     </td>
                     <td th:text="${tp.row.played}">3</td>
                     <td class="c-pts" th:text="${tp.row.points}">4</td>

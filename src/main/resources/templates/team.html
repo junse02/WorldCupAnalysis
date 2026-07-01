@@ -7,8 +7,11 @@
 <main class="container">
     <a class="back-link" th:href="@{/standings}">← 순위표</a>
 
-    <section class="hero hero-sm">
-        <h1 th:text="${teamName}">팀명</h1>
+    <section class="hero hero-sm team-hero" th:with="furl=${@flags.url(teamName)}">
+        <h1>
+            <img class="flag" th:if="${furl != ''}" th:src="${furl}" alt="" loading="lazy"/>
+            <span th:text="${teamName}">팀명</span>
+        </h1>
         <p>에이스 선수와 전술 성향 분석입니다.</p>
     </section>
 

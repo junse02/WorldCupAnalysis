@@ -32,9 +32,10 @@
                           th:text="${m.statusLabel}">예정</span>
                 </div>
                 <div class="match-teams">
-                    <div class="team">
-                        <span class="crest-badge" th:if="${m.homeCrest == null}" th:text="${m.homeTla}">HOM</span>
+                    <div class="team" th:with="furl=${@flags.url(m.homeName)}">
                         <img class="crest" th:if="${m.homeCrest != null}" th:src="${m.homeCrest}" alt=""/>
+                        <img class="flag" th:if="${m.homeCrest == null and furl != ''}" th:src="${furl}" alt="" loading="lazy"/>
+                        <span class="crest-badge" th:if="${m.homeCrest == null and furl == ''}" th:text="${m.homeTla}">HOM</span>
                         <span class="team-name" th:text="${m.homeName}">홈팀</span>
                     </div>
                     <div class="center">
@@ -42,9 +43,10 @@
                         <span th:if="${m.scoreLabel == null}" class="kickoff" th:text="${m.timeLabel}">21:00</span>
                         <span class="vs">VS</span>
                     </div>
-                    <div class="team team-away">
-                        <span class="crest-badge" th:if="${m.awayCrest == null}" th:text="${m.awayTla}">AWY</span>
+                    <div class="team team-away" th:with="furl=${@flags.url(m.awayName)}">
                         <img class="crest" th:if="${m.awayCrest != null}" th:src="${m.awayCrest}" alt=""/>
+                        <img class="flag" th:if="${m.awayCrest == null and furl != ''}" th:src="${furl}" alt="" loading="lazy"/>
+                        <span class="crest-badge" th:if="${m.awayCrest == null and furl == ''}" th:text="${m.awayTla}">AWY</span>
                         <span class="team-name" th:text="${m.awayName}">원정팀</span>
                     </div>
                 </div>
