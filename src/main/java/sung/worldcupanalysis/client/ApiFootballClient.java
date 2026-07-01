@@ -143,7 +143,7 @@ public class ApiFootballClient {
     private ScoreDto toScore(FixtureItem item) {
         Integer home = item.goals() != null ? item.goals().home() : null;
         Integer away = item.goals() != null ? item.goals().away() : null;
-        return new ScoreDto(null, "REGULAR", new ScoreLine(home, away));
+        return new ScoreDto(null, "REGULAR", new ScoreLine(home, away), null);
     }
 
     /** API-Football status short codes -> the normalized status codes MatchService understands. */

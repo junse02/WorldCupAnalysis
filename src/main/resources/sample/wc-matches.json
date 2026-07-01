@@ -431,6 +431,102 @@
       "homeTeam": { "id": 48, "name": "Panama", "shortName": "Panama", "tla": "PAN" },
       "awayTeam": { "id": 46, "name": "Croatia", "shortName": "Croatia", "tla": "CRO" },
       "score": { "winner": "AWAY_TEAM", "duration": "REGULAR", "fullTime": { "home": 0, "away": 1 } }
+    },
+    {
+      "id": 270073, "utcDate": "2026-06-28T20:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
+      "homeTeam": { "id": null, "name": "South Africa", "shortName": "South Africa", "tla": "RSA" },
+      "awayTeam": { "id": null, "name": "Canada", "shortName": "Canada", "tla": "CAN" },
+      "score": { "winner": "AWAY_TEAM", "duration": "REGULAR", "fullTime": { "home": 0, "away": 1 } }
+    },
+    {
+      "id": 270074, "utcDate": "2026-06-29T16:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
+      "homeTeam": { "id": null, "name": "Germany", "shortName": "Germany", "tla": "GER" },
+      "awayTeam": { "id": null, "name": "Paraguay", "shortName": "Paraguay", "tla": "PAR" },
+      "score": { "winner": "AWAY_TEAM", "duration": "PENALTY_SHOOTOUT", "fullTime": { "home": 1, "away": 1 }, "penalties": { "home": 3, "away": 4 } }
+    },
+    {
+      "id": 270075, "utcDate": "2026-06-29T20:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
+      "homeTeam": { "id": null, "name": "Netherlands", "shortName": "Netherlands", "tla": "NED" },
+      "awayTeam": { "id": null, "name": "Morocco", "shortName": "Morocco", "tla": "MAR" },
+      "score": { "winner": "AWAY_TEAM", "duration": "PENALTY_SHOOTOUT", "fullTime": { "home": 1, "away": 1 }, "penalties": { "home": 2, "away": 3 } }
+    },
+    {
+      "id": 270076, "utcDate": "2026-06-29T23:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
+      "homeTeam": { "id": null, "name": "Brazil", "shortName": "Brazil", "tla": "BRA" },
+      "awayTeam": { "id": null, "name": "Japan", "shortName": "Japan", "tla": "JPN" },
+      "score": { "winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": { "home": 2, "away": 1 } }
+    },
+    {
+      "id": 270077, "utcDate": "2026-06-30T20:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
+      "homeTeam": { "id": null, "name": "France", "shortName": "France", "tla": "FRA" },
+      "awayTeam": { "id": null, "name": "Sweden", "shortName": "Sweden", "tla": "SWE" },
+      "score": { "winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": { "home": 3, "away": 0 } }
+    },
+    {
+      "id": 270078, "utcDate": "2026-06-30T23:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
+      "homeTeam": { "id": null, "name": "Ivory Coast", "shortName": "Ivory Coast", "tla": "CIV" },
+      "awayTeam": { "id": null, "name": "Norway", "shortName": "Norway", "tla": "NOR" },
+      "score": { "winner": "AWAY_TEAM", "duration": "REGULAR", "fullTime": { "home": 1, "away": 2 } }
+    },
+    {
+      "id": 270079, "utcDate": "2026-06-30T02:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
+      "homeTeam": { "id": null, "name": "Mexico", "shortName": "Mexico", "tla": "MEX" },
+      "awayTeam": { "id": null, "name": "Ecuador", "shortName": "Ecuador", "tla": "ECU" },
+      "score": { "winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": { "home": 2, "away": 0 } }
+    },
+    {
+      "id": 270080, "utcDate": "2026-07-01T19:00:00Z", "status": "TIMED", "stage": "LAST_32", "group": null,
+      "homeTeam": { "id": null, "name": "England", "shortName": "England", "tla": "ENG" },
+      "awayTeam": { "id": null, "name": "DR Congo", "shortName": "DR Congo", "tla": "COD" },
+      "score": null
+    },
+    {
+      "id": 270081, "utcDate": "2026-07-01T22:00:00Z", "status": "TIMED", "stage": "LAST_32", "group": null,
+      "homeTeam": { "id": null, "name": "United States", "shortName": "United States", "tla": "USA" },
+      "awayTeam": { "id": null, "name": "Bosnia and Herzegovina", "shortName": "Bosnia and Herzegovina", "tla": "BIH" },
+      "score": null
+    },
+    {
+      "id": 270082, "utcDate": "2026-07-02T01:00:00Z", "status": "TIMED", "stage": "LAST_32", "group": null,
+      "homeTeam": { "id": null, "name": "Belgium", "shortName": "Belgium", "tla": "BEL" },
+      "awayTeam": { "id": null, "name": "Senegal", "shortName": "Senegal", "tla": "SEN" },
+      "score": null
+    },
+    {
+      "id": 270083, "utcDate": "2026-07-02T19:00:00Z", "status": "TIMED", "stage": "LAST_32", "group": null,
+      "homeTeam": { "id": null, "name": "Portugal", "shortName": "Portugal", "tla": "POR" },
+      "awayTeam": { "id": null, "name": "Croatia", "shortName": "Croatia", "tla": "CRO" },
+      "score": null
+    },
+    {
+      "id": 270084, "utcDate": "2026-07-02T22:00:00Z", "status": "TIMED", "stage": "LAST_32", "group": null,
+      "homeTeam": { "id": null, "name": "Spain", "shortName": "Spain", "tla": "ESP" },
+      "awayTeam": { "id": null, "name": "Austria", "shortName": "Austria", "tla": "AUT" },
+      "score": null
+    },
+    {
+      "id": 270085, "utcDate": "2026-07-03T01:00:00Z", "status": "TIMED", "stage": "LAST_32", "group": null,
+      "homeTeam": { "id": null, "name": "Switzerland", "shortName": "Switzerland", "tla": "SUI" },
+      "awayTeam": { "id": null, "name": "Algeria", "shortName": "Algeria", "tla": "ALG" },
+      "score": null
+    },
+    {
+      "id": 270086, "utcDate": "2026-07-03T19:00:00Z", "status": "TIMED", "stage": "LAST_32", "group": null,
+      "homeTeam": { "id": null, "name": "Argentina", "shortName": "Argentina", "tla": "ARG" },
+      "awayTeam": { "id": null, "name": "Cape Verde", "shortName": "Cape Verde", "tla": "CPV" },
+      "score": null
+    },
+    {
+      "id": 270087, "utcDate": "2026-07-03T22:00:00Z", "status": "TIMED", "stage": "LAST_32", "group": null,
+      "homeTeam": { "id": null, "name": "Colombia", "shortName": "Colombia", "tla": "COL" },
+      "awayTeam": { "id": null, "name": "Ghana", "shortName": "Ghana", "tla": "GHA" },
+      "score": null
+    },
+    {
+      "id": 270088, "utcDate": "2026-07-04T01:00:00Z", "status": "TIMED", "stage": "LAST_32", "group": null,
+      "homeTeam": { "id": null, "name": "Australia", "shortName": "Australia", "tla": "AUS" },
+      "awayTeam": { "id": null, "name": "Egypt", "shortName": "Egypt", "tla": "EGY" },
+      "score": null
     }
   ]
 }

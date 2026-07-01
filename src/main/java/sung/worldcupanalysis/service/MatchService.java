@@ -120,7 +120,12 @@ public class MatchService {
         if (home == null || away == null) {
             return null;
         }
-        return home + " : " + away;
+        String label = home + " : " + away;
+        var pens = m.score().penalties();
+        if (pens != null && pens.home() != null && pens.away() != null) {
+            label += " (승부차기 " + pens.home() + ":" + pens.away() + ")";
+        }
+        return label;
     }
 
     private String stageLabel(String stage) {

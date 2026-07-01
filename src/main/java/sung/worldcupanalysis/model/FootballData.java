@@ -29,7 +29,7 @@ public final class FootballData {
     public record TeamRef(Long id, String name, String shortName, String tla, String crest) {
     }
 
-    public record ScoreDto(String winner, String duration, ScoreLine fullTime) {
+    public record ScoreDto(String winner, String duration, ScoreLine fullTime, ScoreLine penalties) {
     }
 
     public record ScoreLine(Integer home, Integer away) {

@@ -22,14 +22,18 @@
                 <div class="ties">
                     <div class="tie" th:each="tie : ${round.ties}">
                         <span class="tie-no" th:if="${tie.no != ''}" th:text="${tie.no}">M1</span>
-                        <div class="slot" th:with="furl=${@flags.url(tie.top)}">
+                        <div class="slot" th:with="furl=${@flags.url(tie.top)}"
+                             th:classappend="${tie.finished} ? (${tie.winner == 'TOP'} ? 'slot-win' : 'slot-lose') : ''">
                             <img class="flag" th:if="${furl != ''}" th:src="${furl}" alt="" loading="lazy"/>
                             <span class="slot-name" th:text="${tie.top}">상단</span>
+                            <span class="slot-score" th:if="${tie.topScore != ''}" th:text="${tie.topScore}">2</span>
                         </div>
                         <div class="slot-vs">vs</div>
-                        <div class="slot" th:with="furl=${@flags.url(tie.bottom)}">
+                        <div class="slot" th:with="furl=${@flags.url(tie.bottom)}"
+                             th:classappend="${tie.finished} ? (${tie.winner == 'BOTTOM'} ? 'slot-win' : 'slot-lose') : ''">
                             <img class="flag" th:if="${furl != ''}" th:src="${furl}" alt="" loading="lazy"/>
                             <span class="slot-name" th:text="${tie.bottom}">하단</span>
+                            <span class="slot-score" th:if="${tie.bottomScore != ''}" th:text="${tie.bottomScore}">1</span>
                         </div>
                     </div>
                 </div>

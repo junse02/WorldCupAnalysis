@@ -20,14 +20,14 @@ class StandingsServiceTest {
         return new MatchDto(0, "2026-06-20T00:00:00Z", "FINISHED", "GROUP_STAGE", group,
                 new TeamRef(null, home, home, null, null),
                 new TeamRef(null, away, away, null, null),
-                new ScoreDto(null, "REGULAR", new ScoreLine(hg, ag)));
+                new ScoreDto(null, "REGULAR", new ScoreLine(hg, ag), null));
     }
 
     private static MatchDto upcoming(String group, String home, String away) {
         return new MatchDto(0, "2026-06-20T00:00:00Z", "TIMED", "GROUP_STAGE", group,
                 new TeamRef(null, home, home, null, null),
                 new TeamRef(null, away, away, null, null),
-                new ScoreDto(null, "REGULAR", new ScoreLine(null, null)));
+                new ScoreDto(null, "REGULAR", new ScoreLine(null, null), null));
     }
 
     private static final List<MatchDto> COMPLETE_GROUP_A = List.of(

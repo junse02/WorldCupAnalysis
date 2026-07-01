@@ -3,8 +3,10 @@ package sung.worldcupanalysis.service;
 import org.springframework.stereotype.Service;
 import sung.worldcupanalysis.model.Bracket.Round;
 import sung.worldcupanalysis.model.Bracket.Tie;
+import sung.worldcupanalysis.model.FootballData.MatchDto;
 import sung.worldcupanalysis.service.StandingsService.GroupTable;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,27 +20,75 @@ import java.util.Map;
 @Service
 public class BracketService {
 
-    private final StandingsService standings;
+    /** Knockout match ids encode their FIFA number: id 270073 -> "M73". */
+    private static final long KO_ID_BASE = 270000L;
 
-    public BracketService(StandingsService standings) {
+    private final StandingsService standings;
+    private final MatchService matchService;
+
+    public BracketService(StandingsService standings, MatchService matchService) {
         this.standings = standings;
+        this.matchService = matchService;
     }
 
     /**
-     * The bracket with slots resolved to real team names where the group stage
-     * already decides them (completed groups' 1st/2nd). Everything else stays as
-     * its positional/feeder label.
+     * The bracket with slots filled in from real data where available: an actual
+     * knockout fixture (real teams, score and winner) overrides its tie, and any
+     * remaining "X조 1위/2위" labels resolve from completed groups. Unplayed later
+     * rounds keep their positional/feeder labels.
      */
     public List<Round> rounds() {
         Map<String, GroupTable> tables = standings.tables();
+        Map<String, MatchDto> knockout = knockoutByNo();
         return rawRounds().stream()
                 .map(round -> new Round(round.name(), round.dateLabel(),
                         round.ties().stream()
-                                .map(tie -> new Tie(tie.no(),
-                                        StandingsService.resolveSlot(tie.top(), tables),
-                                        StandingsService.resolveSlot(tie.bottom(), tables)))
+                                .map(tie -> resolveTie(tie, tables, knockout))
                                 .toList()))
                 .toList();
+    }
+
+    /** Overlays an actual knockout fixture onto a tie, else resolves group slots. */
+    private Tie resolveTie(Tie tie, Map<String, GroupTable> tables, Map<String, MatchDto> knockout) {
+        MatchDto m = knockout.get(tie.no());
+        if (m != null) {
+            String top = m.homeTeam().name();
+            String bottom = m.awayTeam().name();
+            var score = m.score();
+            boolean finished = "FINISHED".equalsIgnoreCase(m.status())
+                    && score != null && score.fullTime() != null
+                    && score.fullTime().home() != null && score.fullTime().away() != null;
+            if (finished) {
+                var pens = score.penalties();
+                String ts = scoreText(score.fullTime().home(), pens != null ? pens.home() : null);
+                String bs = scoreText(score.fullTime().away(), pens != null ? pens.away() : null);
+                String winner = "HOME_TEAM".equals(score.winner()) ? "TOP"
+                        : "AWAY_TEAM".equals(score.winner()) ? "BOTTOM" : "";
+                return new Tie(tie.no(), top, bottom, ts, bs, winner, true);
+            }
+            return new Tie(tie.no(), top, bottom); // fixture set, not yet played
+        }
+        return new Tie(tie.no(),
+                StandingsService.resolveSlot(tie.top(), tables),
+                StandingsService.resolveSlot(tie.bottom(), tables));
+    }
+
+    private static String scoreText(Integer goals, Integer penalties) {
+        if (goals == null) {
+            return "";
+        }
+        return penalties == null ? String.valueOf(goals) : goals + " (" + penalties + ")";
+    }
+
+    /** Knockout fixtures keyed by their FIFA match number ("M73" ... "M104"). */
+    private Map<String, MatchDto> knockoutByNo() {
+        Map<String, MatchDto> map = new HashMap<>();
+        for (MatchDto m : matchService.getAllMatches()) {
+            if (m.stage() != null && !"GROUP_STAGE".equals(m.stage()) && m.id() >= KO_ID_BASE) {
+                map.put("M" + (m.id() - KO_ID_BASE), m);
+            }
+        }
+        return map;
     }
 
     private List<Round> rawRounds() {

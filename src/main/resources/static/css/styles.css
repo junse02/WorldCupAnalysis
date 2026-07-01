@@ -274,7 +274,11 @@ a { color: inherit; text-decoration: none; }
     font-size: 13px; font-weight: 700; padding: 7px 9px;
     background: var(--card-soft); border-radius: 8px;
 }
-.slot-name { min-width: 0; }
+.slot-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.slot-score { margin-left: auto; font-family: 'Bebas Neue', sans-serif; font-size: 15px; color: var(--muted); }
+.slot-win { background: rgba(244, 200, 74, 0.14); box-shadow: inset 0 0 0 1px rgba(244, 200, 74, 0.4); }
+.slot-win .slot-name, .slot-win .slot-score { color: var(--gold); }
+.slot-lose { opacity: 0.5; }
 .slot-vs { font-size: 10px; color: var(--muted); text-align: center; letter-spacing: 2px; margin: 4px 0; }
 
 /* ---------- Standings ---------- */
