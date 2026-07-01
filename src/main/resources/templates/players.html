@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/common :: head('2026 월드컵 득점 순위')}"></head>
+<head th:replace="~{fragments/common :: head('2026 월드컵 득점·도움 순위')}"></head>
 <body>
 <header th:replace="~{fragments/common :: topbar}"></header>
 
 <main class="container">
     <section class="hero hero-sm">
-        <h1>득점 순위</h1>
-        <p>골든부트 레이스입니다. 득점이 같으면 <strong>도움</strong> 수로 순위를 가립니다(아디다스 골든부트 기준).</p>
-        <p class="bracket-note">※ API 키 없이 동작하는 큐레이션 스냅샷(32강 시점 기준)입니다.</p>
+        <h1>득점 · 도움 순위</h1>
+        <p>골든부트 레이스와 플레이메이커(도움) 레이스입니다. 득점 순위는 골이 같으면 <strong>도움</strong> 수로 가립니다(아디다스 골든부트 기준).</p>
+        <p class="bracket-note">※ 32강 시점 기준 실제 득점·도움 스냅샷입니다(API 키 없이 동작하는 번들 데이터).</p>
     </section>
 
     <section class="players-wrap">
         <div class="group-card">
+            <h2 class="players-title">⚽ 득점 순위</h2>
             <table class="standings players-table">
                 <thead>
                 <tr>
@@ -41,7 +42,38 @@
                 </tbody>
             </table>
         </div>
-        <p class="legend"><span>⚽ 골 · 🅰 도움 — 골 → 도움 순 정렬</span></p>
+
+        <div class="group-card">
+            <h2 class="players-title">🅰 도움 순위</h2>
+            <table class="standings players-table">
+                <thead>
+                <tr>
+                    <th class="c-rank">#</th>
+                    <th class="c-team">선수</th>
+                    <th class="c-team">국가</th>
+                    <th>🅰</th>
+                    <th>⚽</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="p, iter : ${assisters}"
+                    th:classappend="${iter.index == 0} ? 'rank-1' : (${iter.index == 1} ? 'rank-2' : (${iter.index == 2} ? 'rank-3' : ''))">
+                    <td class="c-rank" th:text="${iter.index + 1}">1</td>
+                    <td class="c-team c-player" th:text="${p.name}">선수</td>
+                    <td class="c-team" th:with="furl=${@flags.url(p.team)}">
+                        <img class="flag" th:if="${furl != ''}" th:src="${furl}" alt="" loading="lazy"/>
+                        <span th:text="${p.team}">국가</span>
+                    </td>
+                    <td class="c-pts" th:text="${p.assists}">2</td>
+                    <td th:text="${p.goals}">6</td>
+                </tr>
+                <tr th:if="${assisters.isEmpty()}">
+                    <td colspan="5" class="empty-row">도움 기록이 없습니다.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="legend"><span>⚽ 골 · 🅰 도움 — 득점 순위는 골 → 도움, 도움 순위는 도움 → 골 순 정렬</span></p>
     </section>
 </main>
 

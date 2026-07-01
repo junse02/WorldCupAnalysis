@@ -36,8 +36,9 @@
         </div>
     </section>
 
-    <section class="preview">
-        <h2>🎯 맞대결 관전 포인트</h2>
+    <section class="preview"
+             th:with="reviewMode=${match.finished and match.scoreLabel != null}">
+        <h2 th:text="${reviewMode} ? '📝 경기 총평' : '🎯 맞대결 관전 포인트'">🎯 맞대결 관전 포인트</h2>
         <p th:text="${preview}">맞대결 분석</p>
     </section>
 

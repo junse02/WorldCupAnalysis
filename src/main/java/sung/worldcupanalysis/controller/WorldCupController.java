@@ -61,10 +61,15 @@ public class WorldCupController {
         String home = view.homeName();
         String away = view.awayName();
 
+        // Finished matches get a result recap; upcoming ones get a preview.
+        String analysis = (view.finished() && view.scoreLabel() != null)
+                ? analysisService.matchReview(home, away, view.scoreLabel())
+                : analysisService.matchupPreview(home, away);
+
         model.addAttribute("match", view);
         model.addAttribute("homeAnalysis", analysisService.analyzeTeam(home));
         model.addAttribute("awayAnalysis", analysisService.analyzeTeam(away));
-        model.addAttribute("preview", analysisService.matchupPreview(home, away));
+        model.addAttribute("preview", analysis);
         model.addAttribute("aiEnabled", analysisService.isEnabled());
         return "match";
     }
@@ -89,6 +94,7 @@ public class WorldCupController {
     @GetMapping("/players")
     public String players(Model model) {
         model.addAttribute("scorers", playerStatsService.topScorers());
+        model.addAttribute("assisters", playerStatsService.topAssists());
         return "players";
     }
 

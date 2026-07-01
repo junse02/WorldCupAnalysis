@@ -39,6 +39,12 @@ public class GeminiClient {
             승부를 가를 변수를 3~4문장의 한국어로 흥미롭게 풀어내세요.
             마크다운 기호 없이 평문으로만 작성합니다.""";
 
+    private static final String REVIEW_SYSTEM = """
+            당신은 이미 끝난 축구 경기를 리뷰하는 해설위원입니다.
+            주어진 최종 스코어를 바탕으로 승부를 가른 요인, 잘한 팀과 아쉬운 팀,
+            경기의 결정적 흐름을 3~4문장의 한국어로 흥미롭게 총평하세요.
+            스코어와 모순되는 내용을 쓰지 말고, 마크다운 기호 없이 평문으로만 작성합니다.""";
+
     private final boolean enabled;
     private final RestClient rest;
     private final String model;
@@ -104,6 +110,25 @@ public class GeminiClient {
             return (text == null || text.isBlank()) ? Optional.empty() : Optional.of(text.trim());
         } catch (Exception e) {
             log.warn("Gemini matchup preview failed for '{}' vs '{}': {}", homeTeam, awayTeam, e.getMessage());
+            return Optional.empty();
+        }
+    }
+
+    public Optional<String> matchReview(String homeTeam, String awayTeam, String scoreLabel) {
+        if (!enabled) {
+            return Optional.empty();
+        }
+        try {
+            Map<String, Object> body = new LinkedHashMap<>();
+            body.put("system_instruction", parts(REVIEW_SYSTEM));
+            body.put("contents", List.of(parts(
+                    "%s 대 %s 경기가 %s로 끝났습니다. 이 결과를 바탕으로 경기 총평을 작성해 주세요."
+                            .formatted(homeTeam, awayTeam, scoreLabel))));
+
+            String text = generate(body);
+            return (text == null || text.isBlank()) ? Optional.empty() : Optional.of(text.trim());
+        } catch (Exception e) {
+            log.warn("Gemini match review failed for '{}' vs '{}': {}", homeTeam, awayTeam, e.getMessage());
             return Optional.empty();
         }
     }

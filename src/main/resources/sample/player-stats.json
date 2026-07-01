@@ -1,23 +1,23 @@
 {
   "players": [
     { "name": "킬리안 음바페", "team": "France", "goals": 6, "assists": 2 },
-    { "name": "리오넬 메시", "team": "Argentina", "goals": 6, "assists": 1 },
+    { "name": "리오넬 메시", "team": "Argentina", "goals": 6, "assists": 0 },
     { "name": "엘링 홀란", "team": "Norway", "goals": 5, "assists": 0 },
-    { "name": "우스만 뎀벨레", "team": "France", "goals": 4, "assists": 1 },
+    { "name": "우스만 뎀벨레", "team": "France", "goals": 4, "assists": 2 },
     { "name": "비니시우스 주니오르", "team": "Brazil", "goals": 4, "assists": 1 },
     { "name": "훌리안 키뇨네스", "team": "Mexico", "goals": 3, "assists": 1 },
-    { "name": "요안 위사", "team": "DR Congo", "goals": 3, "assists": 0 },
-    { "name": "해리 케인", "team": "England", "goals": 3, "assists": 0 },
-    { "name": "이스마일라 사르", "team": "Senegal", "goals": 3, "assists": 0 },
-    { "name": "이스마엘 사이바리", "team": "Morocco", "goals": 3, "assists": 0 },
+    { "name": "요한 만잠비", "team": "Switzerland", "goals": 3, "assists": 1 },
+    { "name": "이스마일라 사르", "team": "Senegal", "goals": 3, "assists": 1 },
     { "name": "마테우스 쿠냐", "team": "Brazil", "goals": 3, "assists": 0 },
     { "name": "조너선 데이비드", "team": "Canada", "goals": 3, "assists": 0 },
-    { "name": "요한 만잠비", "team": "Switzerland", "goals": 3, "assists": 0 },
-    { "name": "라울 히메네스", "team": "Mexico", "goals": 2, "assists": 2 },
-    { "name": "브래들리 바르콜라", "team": "France", "goals": 2, "assists": 1 },
-    { "name": "리야드 마레즈", "team": "Algeria", "goals": 2, "assists": 1 },
+    { "name": "해리 케인", "team": "England", "goals": 3, "assists": 0 },
+    { "name": "이스마엘 사이바리", "team": "Morocco", "goals": 3, "assists": 0 },
+    { "name": "요안 위사", "team": "DR Congo", "goals": 3, "assists": 0 },
+    { "name": "레안드로 트로사르", "team": "Belgium", "goals": 2, "assists": 1 },
+    { "name": "라울 히메네스", "team": "Mexico", "goals": 2, "assists": 0 },
+    { "name": "브래들리 바르콜라", "team": "France", "goals": 2, "assists": 0 },
+    { "name": "리야드 마레즈", "team": "Algeria", "goals": 2, "assists": 0 },
     { "name": "마르코 아르나우토비치", "team": "Austria", "goals": 2, "assists": 0 },
-    { "name": "주드 벨링엄", "team": "England", "goals": 2, "assists": 0 },
-    { "name": "레안드로 트로사르", "team": "Belgium", "goals": 2, "assists": 0 }
+    { "name": "주드 벨링엄", "team": "England", "goals": 2, "assists": 0 }
   ]
 }

@@ -33,6 +33,12 @@ public class AnalysisService {
             승부를 가를 변수를 3~4문장의 한국어로 흥미롭게 풀어내세요.
             마크다운 기호 없이 평문으로만 작성합니다.""";
 
+    private static final String REVIEW_SYSTEM = """
+            당신은 이미 끝난 축구 경기를 리뷰하는 해설위원입니다.
+            주어진 최종 스코어를 바탕으로 승부를 가른 요인, 잘한 팀과 아쉬운 팀,
+            경기의 결정적 흐름을 3~4문장의 한국어로 흥미롭게 총평하세요.
+            스코어와 모순되는 내용을 쓰지 말고, 마크다운 기호 없이 평문으로만 작성합니다.""";
+
     private final AnthropicClient client; // null when no Anthropic key configured
     private final String model;
     private final StaticAnalysisStore staticStore;
@@ -129,6 +135,56 @@ public class AnalysisService {
             log.warn("Matchup preview failed for '{}' vs '{}': {}", homeTeam, awayTeam, e.getMessage());
             return staticPreview(homeTeam, awayTeam);
         }
+    }
+
+    @Cacheable("matchReview")
+    public String matchReview(String homeTeam, String awayTeam, String scoreLabel) {
+        if (gemini.isEnabled()) {
+            Optional<String> r = gemini.matchReview(homeTeam, awayTeam, scoreLabel);
+            if (r.isPresent()) {
+                return r.get();
+            }
+        }
+        if (client == null) {
+            return staticReview(homeTeam, awayTeam, scoreLabel);
+        }
+        try {
+            String prompt = "%s 대 %s 경기가 %s로 끝났습니다. 이 결과를 바탕으로 경기 총평을 작성해 주세요."
+                    .formatted(homeTeam, awayTeam, scoreLabel);
+            MessageCreateParams params = MessageCreateParams.builder()
+                    .model(model)
+                    .maxTokens(2_000L)
+                    .system(REVIEW_SYSTEM)
+                    .addUserMessage(prompt)
+                    .build();
+
+            Message message = client.messages().create(params);
+            String text = message.content().stream()
+                    .flatMap(block -> block.text().stream())
+                    .map(t -> t.text())
+                    .reduce("", (a, b) -> a + b)
+                    .trim();
+            return text.isEmpty()
+                    ? staticReview(homeTeam, awayTeam, scoreLabel)
+                    : text;
+        } catch (Exception e) {
+            log.warn("Match review failed for '{}' vs '{}': {}", homeTeam, awayTeam, e.getMessage());
+            return staticReview(homeTeam, awayTeam, scoreLabel);
+        }
+    }
+
+    /** Composes a short result recap from the final score and both teams' curated styles. */
+    private String staticReview(String homeTeam, String awayTeam, String scoreLabel) {
+        String base = "%s 대 %s 경기는 %s로 마무리됐다.".formatted(homeTeam, awayTeam, scoreLabel);
+        var home = staticStore.find(homeTeam);
+        var away = staticStore.find(awayTeam);
+        if (home.isEmpty() || away.isEmpty()) {
+            return base + " (GEMINI_API_KEY 또는 ANTHROPIC_API_KEY를 설정하면 AI가 경기 총평을 생성합니다.)";
+        }
+        TeamAnalysis h = home.get();
+        TeamAnalysis a = away.get();
+        return base + " %s의 에이스 %s와(과) %s의 에이스 %s의 활약이 승부의 중심에 있었다. 두 팀의 '%s' 대 '%s' 스타일 대결이 결과에 그대로 드러난 경기였다."
+                .formatted(homeTeam, h.acePlayer(), awayTeam, a.acePlayer(), h.playStyle(), a.playStyle());
     }
 
     /** Composes a short preview from the curated analyses of both teams. */

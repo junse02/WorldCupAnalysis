@@ -23,27 +23,37 @@ public class PlayerStatsService {
     private static final Logger log = LoggerFactory.getLogger(PlayerStatsService.class);
     private static final String RESOURCE = "sample/player-stats.json";
 
-    private final List<PlayerStat> topScorers;
+    private final List<PlayerStat> players;
 
     public PlayerStatsService() {
-        this.topScorers = load();
+        this.players = load();
     }
 
     /** Leaderboard ordered by goals, then assists (Golden Boot tiebreaker). */
     public List<PlayerStat> topScorers() {
-        return topScorers;
+        return players.stream()
+                .sorted(Comparator.comparingInt(PlayerStat::goals).reversed()
+                        .thenComparing(Comparator.comparingInt(PlayerStat::assists).reversed())
+                        .thenComparing(PlayerStat::name))
+                .toList();
+    }
+
+    /** Leaderboard ordered by assists, then goals — the assist (playmaker) race. */
+    public List<PlayerStat> topAssists() {
+        return players.stream()
+                .filter(p -> p.assists() > 0)
+                .sorted(Comparator.comparingInt(PlayerStat::assists).reversed()
+                        .thenComparing(Comparator.comparingInt(PlayerStat::goals).reversed())
+                        .thenComparing(PlayerStat::name))
+                .toList();
     }
 
     private List<PlayerStat> load() {
         try (InputStream in = new ClassPathResource(RESOURCE).getInputStream()) {
             PlayersFile file = new ObjectMapper().readValue(in, PlayersFile.class);
-            List<PlayerStat> players = file.players().stream()
-                    .sorted(Comparator.comparingInt(PlayerStat::goals).reversed()
-                            .thenComparing(Comparator.comparingInt(PlayerStat::assists).reversed())
-                            .thenComparing(PlayerStat::name))
-                    .toList();
-            log.info("Loaded {} curated player stats.", players.size());
-            return players;
+            List<PlayerStat> loaded = file.players();
+            log.info("Loaded {} curated player stats.", loaded.size());
+            return loaded;
         } catch (Exception e) {
             log.error("Failed to load curated player stats from {}", RESOURCE, e);
             return List.of();
