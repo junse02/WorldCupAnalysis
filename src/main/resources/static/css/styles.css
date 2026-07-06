@@ -156,6 +156,37 @@ a { color: inherit; text-decoration: none; }
 
 .empty { padding: 60px 0; text-align: center; color: var(--muted); }
 
+/* ---------- Odds (win/draw/loss probability) ---------- */
+.odds { margin-top: 12px; }
+.odds-bar {
+    display: flex; height: 8px; border-radius: 999px; overflow: hidden;
+    background: rgba(255,255,255,0.06);
+}
+.odds-bar > span { display: block; height: 100%; }
+.odds-seg-home { background: var(--blue); }
+.odds-seg-draw { background: rgba(255,255,255,0.28); }
+.odds-seg-away { background: var(--gold); }
+.odds-legend {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-top: 6px; font-size: 11px; color: var(--muted);
+}
+.odds-legend b { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 0.5px; }
+.odds-legend .oh b { color: var(--blue); }
+.odds-legend .od b { color: var(--text); }
+.odds-legend .oa b { color: var(--gold); }
+.odds-title {
+    font-size: 10px; letter-spacing: 2px; color: var(--muted);
+    text-transform: uppercase; margin-bottom: 8px;
+}
+/* Larger variant for the match detail panel */
+.odds-panel {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 16px; padding: 18px 22px; margin-top: 14px;
+}
+.odds-panel .odds-bar { height: 12px; }
+.odds-panel .odds-legend { font-size: 13px; }
+.odds-panel .odds-legend b { font-size: 18px; }
+
 /* ---------- Match detail ---------- */
 .back-link { display: inline-block; margin: 24px 0 8px; color: var(--muted); }
 .back-link:hover { color: var(--gold); }

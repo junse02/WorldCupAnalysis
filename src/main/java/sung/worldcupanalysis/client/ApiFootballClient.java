@@ -122,7 +122,8 @@ public class ApiFootballClient {
                 mapGroup(round),
                 toTeamRef(item.teams() != null ? item.teams().home() : null),
                 toTeamRef(item.teams() != null ? item.teams().away() : null),
-                toScore(item));
+                toScore(item),
+                null);
     }
 
     private TeamRef toTeamRef(TeamInfo t) {

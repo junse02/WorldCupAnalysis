@@ -50,6 +50,19 @@
                         <span class="team-name" th:text="${m.awayName}">원정팀</span>
                     </div>
                 </div>
+                <div class="odds" th:if="${m.hasOdds}"
+                     th:with="oh=${m.oddsHome},od=${m.oddsDraw},oa=${m.oddsAway}">
+                    <div class="odds-bar">
+                        <span class="odds-seg-home" th:style="'width:' + ${oh} + '%'"></span>
+                        <span class="odds-seg-draw" th:style="'width:' + ${od} + '%'"></span>
+                        <span class="odds-seg-away" th:style="'width:' + ${oa} + '%'"></span>
+                    </div>
+                    <div class="odds-legend">
+                        <span class="oh">홈 <b th:text="${oh} + '%'">45%</b></span>
+                        <span class="od">무 <b th:text="${od} + '%'">28%</b></span>
+                        <span class="oa">원정 <b th:text="${oa} + '%'">27%</b></span>
+                    </div>
+                </div>
                 <div class="card-cta">분석 보기 →</div>
             </a>
         </div>

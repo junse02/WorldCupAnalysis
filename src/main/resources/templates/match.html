@@ -36,6 +36,23 @@
         </div>
     </section>
 
+    <section class="odds-panel" th:if="${match.hasOdds}"
+             th:with="oh=${match.oddsHome},od=${match.oddsDraw},oa=${match.oddsAway}">
+        <div class="odds-title">경기 전 승 · 무 · 패 확률 (북메이커 배당 환산)</div>
+        <div class="odds">
+            <div class="odds-bar">
+                <span class="odds-seg-home" th:style="'width:' + ${oh} + '%'"></span>
+                <span class="odds-seg-draw" th:style="'width:' + ${od} + '%'"></span>
+                <span class="odds-seg-away" th:style="'width:' + ${oa} + '%'"></span>
+            </div>
+            <div class="odds-legend">
+                <span class="oh"><span th:text="${match.homeName} + ' 승'">홈 승</span> <b th:text="${oh} + '%'">45%</b></span>
+                <span class="od">무승부 <b th:text="${od} + '%'">28%</b></span>
+                <span class="oa"><span th:text="${match.awayName} + ' 승'">원정 승</span> <b th:text="${oa} + '%'">27%</b></span>
+            </div>
+        </div>
+    </section>
+
     <section class="preview"
              th:with="reviewMode=${match.finished and match.scoreLabel != null}">
         <h2 th:text="${reviewMode} ? '📝 경기 총평' : '🎯 맞대결 관전 포인트'">🎯 맞대결 관전 포인트</h2>

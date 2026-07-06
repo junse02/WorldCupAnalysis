@@ -19,5 +19,9 @@ public record MatchView(
         boolean finished,
         String dateLabel,
         String timeLabel,
-        String scoreLabel) {
+        String scoreLabel,
+        boolean hasOdds,
+        Integer oddsHome,
+        Integer oddsDraw,
+        Integer oddsAway) {
 }

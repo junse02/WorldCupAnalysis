@@ -89,7 +89,28 @@ public class MatchService {
                 finished,
                 dateLabel,
                 local.format(TIME_FMT),
-                scoreLabel(m));
+                scoreLabel(m),
+                hasOdds(m),
+                oddsHome(m),
+                oddsDraw(m),
+                oddsAway(m));
+    }
+
+    private static boolean hasOdds(MatchDto m) {
+        var o = m.odds();
+        return o != null && o.home() != null && o.draw() != null && o.away() != null;
+    }
+
+    private static Integer oddsHome(MatchDto m) {
+        return m.odds() != null ? m.odds().home() : null;
+    }
+
+    private static Integer oddsDraw(MatchDto m) {
+        return m.odds() != null ? m.odds().draw() : null;
+    }
+
+    private static Integer oddsAway(MatchDto m) {
+        return m.odds() != null ? m.odds().away() : null;
     }
 
     private OffsetDateTime kickoff(MatchDto m) {

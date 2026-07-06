@@ -436,145 +436,169 @@
       "id": 270073, "utcDate": "2026-06-28T20:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
       "homeTeam": { "id": null, "name": "South Africa", "shortName": "South Africa", "tla": "RSA" },
       "awayTeam": { "id": null, "name": "Canada", "shortName": "Canada", "tla": "CAN" },
-      "score": { "winner": "AWAY_TEAM", "duration": "REGULAR", "fullTime": { "home": 0, "away": 1 } }
+      "score": { "winner": "AWAY_TEAM", "duration": "REGULAR", "fullTime": { "home": 0, "away": 1 } },
+      "odds": { "home": 16, "draw": 26, "away": 58 }
     },
     {
       "id": 270074, "utcDate": "2026-06-29T16:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
       "homeTeam": { "id": null, "name": "Germany", "shortName": "Germany", "tla": "GER" },
       "awayTeam": { "id": null, "name": "Paraguay", "shortName": "Paraguay", "tla": "PAR" },
-      "score": { "winner": "AWAY_TEAM", "duration": "PENALTY_SHOOTOUT", "fullTime": { "home": 1, "away": 1 }, "penalties": { "home": 3, "away": 4 } }
+      "score": { "winner": "AWAY_TEAM", "duration": "PENALTY_SHOOTOUT", "fullTime": { "home": 1, "away": 1 }, "penalties": { "home": 3, "away": 4 } },
+      "odds": { "home": 73, "draw": 18, "away": 9 }
     },
     {
       "id": 270075, "utcDate": "2026-06-29T20:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
       "homeTeam": { "id": null, "name": "Netherlands", "shortName": "Netherlands", "tla": "NED" },
       "awayTeam": { "id": null, "name": "Morocco", "shortName": "Morocco", "tla": "MAR" },
-      "score": { "winner": "AWAY_TEAM", "duration": "PENALTY_SHOOTOUT", "fullTime": { "home": 1, "away": 1 }, "penalties": { "home": 2, "away": 3 } }
+      "score": { "winner": "AWAY_TEAM", "duration": "PENALTY_SHOOTOUT", "fullTime": { "home": 1, "away": 1 }, "penalties": { "home": 2, "away": 3 } },
+      "odds": { "home": 40, "draw": 31, "away": 29 }
     },
     {
       "id": 270076, "utcDate": "2026-06-29T23:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
       "homeTeam": { "id": null, "name": "Brazil", "shortName": "Brazil", "tla": "BRA" },
       "awayTeam": { "id": null, "name": "Japan", "shortName": "Japan", "tla": "JPN" },
-      "score": { "winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": { "home": 2, "away": 1 } }
+      "score": { "winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": { "home": 2, "away": 1 } },
+      "odds": { "home": 55, "draw": 26, "away": 19 }
     },
     {
       "id": 270077, "utcDate": "2026-06-30T20:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
       "homeTeam": { "id": null, "name": "France", "shortName": "France", "tla": "FRA" },
       "awayTeam": { "id": null, "name": "Sweden", "shortName": "Sweden", "tla": "SWE" },
-      "score": { "winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": { "home": 3, "away": 0 } }
+      "score": { "winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": { "home": 3, "away": 0 } },
+      "odds": { "home": 76, "draw": 16, "away": 8 }
     },
     {
       "id": 270078, "utcDate": "2026-06-30T23:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
       "homeTeam": { "id": null, "name": "Ivory Coast", "shortName": "Ivory Coast", "tla": "CIV" },
       "awayTeam": { "id": null, "name": "Norway", "shortName": "Norway", "tla": "NOR" },
-      "score": { "winner": "AWAY_TEAM", "duration": "REGULAR", "fullTime": { "home": 1, "away": 2 } }
+      "score": { "winner": "AWAY_TEAM", "duration": "REGULAR", "fullTime": { "home": 1, "away": 2 } },
+      "odds": { "home": 26, "draw": 29, "away": 45 }
     },
     {
       "id": 270079, "utcDate": "2026-06-30T02:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
       "homeTeam": { "id": null, "name": "Mexico", "shortName": "Mexico", "tla": "MEX" },
       "awayTeam": { "id": null, "name": "Ecuador", "shortName": "Ecuador", "tla": "ECU" },
-      "score": { "winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": { "home": 2, "away": 0 } }
+      "score": { "winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": { "home": 2, "away": 0 } },
+      "odds": { "home": 43, "draw": 34, "away": 23 }
     },
     {
       "id": 270080, "utcDate": "2026-07-01T19:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
       "homeTeam": { "id": null, "name": "England", "shortName": "England", "tla": "ENG" },
       "awayTeam": { "id": null, "name": "DR Congo", "shortName": "DR Congo", "tla": "COD" },
-      "score": { "winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": { "home": 2, "away": 1 } }
+      "score": { "winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": { "home": 2, "away": 1 } },
+      "odds": { "home": 75, "draw": 18, "away": 7 }
     },
     {
       "id": 270081, "utcDate": "2026-07-01T22:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
       "homeTeam": { "id": null, "name": "United States", "shortName": "United States", "tla": "USA" },
       "awayTeam": { "id": null, "name": "Bosnia and Herzegovina", "shortName": "Bosnia and Herzegovina", "tla": "BIH" },
-      "score": { "winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": { "home": 2, "away": 0 } }
+      "score": { "winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": { "home": 2, "away": 0 } },
+      "odds": { "home": 70, "draw": 19, "away": 11 }
     },
     {
       "id": 270082, "utcDate": "2026-07-02T01:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
       "homeTeam": { "id": null, "name": "Belgium", "shortName": "Belgium", "tla": "BEL" },
       "awayTeam": { "id": null, "name": "Senegal", "shortName": "Senegal", "tla": "SEN" },
-      "score": { "winner": "HOME_TEAM", "duration": "EXTRA_TIME", "fullTime": { "home": 3, "away": 2 } }
+      "score": { "winner": "HOME_TEAM", "duration": "EXTRA_TIME", "fullTime": { "home": 3, "away": 2 } },
+      "odds": { "home": 45, "draw": 29, "away": 26 }
     },
     {
       "id": 270083, "utcDate": "2026-07-02T19:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
       "homeTeam": { "id": null, "name": "Portugal", "shortName": "Portugal", "tla": "POR" },
       "awayTeam": { "id": null, "name": "Croatia", "shortName": "Croatia", "tla": "CRO" },
-      "score": { "winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": { "home": 2, "away": 1 } }
+      "score": { "winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": { "home": 2, "away": 1 } },
+      "odds": { "home": 57, "draw": 27, "away": 16 }
     },
     {
       "id": 270084, "utcDate": "2026-07-02T22:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
       "homeTeam": { "id": null, "name": "Spain", "shortName": "Spain", "tla": "ESP" },
       "awayTeam": { "id": null, "name": "Austria", "shortName": "Austria", "tla": "AUT" },
-      "score": { "winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": { "home": 3, "away": 0 } }
+      "score": { "winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": { "home": 3, "away": 0 } },
+      "odds": { "home": 75, "draw": 17, "away": 8 }
     },
     {
       "id": 270085, "utcDate": "2026-07-03T01:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
       "homeTeam": { "id": null, "name": "Switzerland", "shortName": "Switzerland", "tla": "SUI" },
       "awayTeam": { "id": null, "name": "Algeria", "shortName": "Algeria", "tla": "ALG" },
-      "score": { "winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": { "home": 2, "away": 0 } }
+      "score": { "winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": { "home": 2, "away": 0 } },
+      "odds": { "home": 48, "draw": 30, "away": 22 }
     },
     {
       "id": 270086, "utcDate": "2026-07-03T19:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
       "homeTeam": { "id": null, "name": "Argentina", "shortName": "Argentina", "tla": "ARG" },
       "awayTeam": { "id": null, "name": "Cape Verde", "shortName": "Cape Verde", "tla": "CPV" },
-      "score": { "winner": "HOME_TEAM", "duration": "EXTRA_TIME", "fullTime": { "home": 3, "away": 2 } }
+      "score": { "winner": "HOME_TEAM", "duration": "EXTRA_TIME", "fullTime": { "home": 3, "away": 2 } },
+      "odds": { "home": 84, "draw": 12, "away": 4 }
     },
     {
       "id": 270087, "utcDate": "2026-07-03T22:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
       "homeTeam": { "id": null, "name": "Colombia", "shortName": "Colombia", "tla": "COL" },
       "awayTeam": { "id": null, "name": "Ghana", "shortName": "Ghana", "tla": "GHA" },
-      "score": { "winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": { "home": 1, "away": 0 } }
+      "score": { "winner": "HOME_TEAM", "duration": "REGULAR", "fullTime": { "home": 1, "away": 0 } },
+      "odds": { "home": 67, "draw": 22, "away": 11 }
     },
     {
       "id": 270088, "utcDate": "2026-07-04T01:00:00Z", "status": "FINISHED", "stage": "LAST_32", "group": null,
       "homeTeam": { "id": null, "name": "Australia", "shortName": "Australia", "tla": "AUS" },
       "awayTeam": { "id": null, "name": "Egypt", "shortName": "Egypt", "tla": "EGY" },
-      "score": { "winner": "AWAY_TEAM", "duration": "PENALTY_SHOOTOUT", "fullTime": { "home": 1, "away": 1 }, "penalties": { "home": 2, "away": 4 } }
+      "score": { "winner": "AWAY_TEAM", "duration": "PENALTY_SHOOTOUT", "fullTime": { "home": 1, "away": 1 }, "penalties": { "home": 2, "away": 4 } },
+      "odds": { "home": 26, "draw": 34, "away": 40 }
     },
     {
       "id": 270089, "utcDate": "2026-07-04T16:00:00Z", "status": "FINISHED", "stage": "LAST_16", "group": null,
       "homeTeam": { "id": null, "name": "Paraguay", "shortName": "Paraguay", "tla": "PAR" },
       "awayTeam": { "id": null, "name": "France", "shortName": "France", "tla": "FRA" },
-      "score": { "winner": "AWAY_TEAM", "duration": "REGULAR", "fullTime": { "home": 0, "away": 1 } }
+      "score": { "winner": "AWAY_TEAM", "duration": "REGULAR", "fullTime": { "home": 0, "away": 1 } },
+      "odds": { "home": 5, "draw": 15, "away": 80 }
     },
     {
       "id": 270090, "utcDate": "2026-07-04T20:00:00Z", "status": "FINISHED", "stage": "LAST_16", "group": null,
       "homeTeam": { "id": null, "name": "Canada", "shortName": "Canada", "tla": "CAN" },
       "awayTeam": { "id": null, "name": "Morocco", "shortName": "Morocco", "tla": "MAR" },
-      "score": { "winner": "AWAY_TEAM", "duration": "REGULAR", "fullTime": { "home": 0, "away": 3 } }
+      "score": { "winner": "AWAY_TEAM", "duration": "REGULAR", "fullTime": { "home": 0, "away": 3 } },
+      "odds": { "home": 17, "draw": 28, "away": 55 }
     },
     {
       "id": 270091, "utcDate": "2026-07-05T16:00:00Z", "status": "FINISHED", "stage": "LAST_16", "group": null,
       "homeTeam": { "id": null, "name": "Brazil", "shortName": "Brazil", "tla": "BRA" },
       "awayTeam": { "id": null, "name": "Norway", "shortName": "Norway", "tla": "NOR" },
-      "score": { "winner": "AWAY_TEAM", "duration": "REGULAR", "fullTime": { "home": 1, "away": 2 } }
+      "score": { "winner": "AWAY_TEAM", "duration": "REGULAR", "fullTime": { "home": 1, "away": 2 } },
+      "odds": { "home": 54, "draw": 26, "away": 20 }
     },
     {
       "id": 270092, "utcDate": "2026-07-05T20:00:00Z", "status": "FINISHED", "stage": "LAST_16", "group": null,
       "homeTeam": { "id": null, "name": "Mexico", "shortName": "Mexico", "tla": "MEX" },
       "awayTeam": { "id": null, "name": "England", "shortName": "England", "tla": "ENG" },
-      "score": { "winner": "AWAY_TEAM", "duration": "REGULAR", "fullTime": { "home": 2, "away": 3 } }
+      "score": { "winner": "AWAY_TEAM", "duration": "REGULAR", "fullTime": { "home": 2, "away": 3 } },
+      "odds": { "home": 31, "draw": 31, "away": 38 }
     },
     {
       "id": 270093, "utcDate": "2026-07-06T16:00:00Z", "status": "TIMED", "stage": "LAST_16", "group": null,
       "homeTeam": { "id": null, "name": "Portugal", "shortName": "Portugal", "tla": "POR" },
       "awayTeam": { "id": null, "name": "Spain", "shortName": "Spain", "tla": "ESP" },
-      "score": null
+      "score": null,
+      "odds": { "home": 24, "draw": 26, "away": 50 }
     },
     {
       "id": 270094, "utcDate": "2026-07-06T20:00:00Z", "status": "TIMED", "stage": "LAST_16", "group": null,
       "homeTeam": { "id": null, "name": "United States", "shortName": "United States", "tla": "USA" },
       "awayTeam": { "id": null, "name": "Belgium", "shortName": "Belgium", "tla": "BEL" },
-      "score": null
+      "score": null,
+      "odds": { "home": 35, "draw": 29, "away": 36 }
     },
     {
       "id": 270095, "utcDate": "2026-07-07T16:00:00Z", "status": "TIMED", "stage": "LAST_16", "group": null,
       "homeTeam": { "id": null, "name": "Argentina", "shortName": "Argentina", "tla": "ARG" },
       "awayTeam": { "id": null, "name": "Egypt", "shortName": "Egypt", "tla": "EGY" },
-      "score": null
+      "score": null,
+      "odds": { "home": 70, "draw": 20, "away": 10 }
     },
     {
       "id": 270096, "utcDate": "2026-07-07T20:00:00Z", "status": "TIMED", "stage": "LAST_16", "group": null,
       "homeTeam": { "id": null, "name": "Switzerland", "shortName": "Switzerland", "tla": "SUI" },
       "awayTeam": { "id": null, "name": "Colombia", "shortName": "Colombia", "tla": "COL" },
-      "score": null
+      "score": null,
+      "odds": { "home": 27, "draw": 31, "away": 42 }
     }
   ]
 }
