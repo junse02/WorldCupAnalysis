@@ -541,16 +541,16 @@
       "score": { "winner": "AWAY_TEAM", "duration": "REGULAR", "fullTime": { "home": 0, "away": 3 } }
     },
     {
-      "id": 270091, "utcDate": "2026-07-05T16:00:00Z", "status": "TIMED", "stage": "LAST_16", "group": null,
+      "id": 270091, "utcDate": "2026-07-05T16:00:00Z", "status": "FINISHED", "stage": "LAST_16", "group": null,
       "homeTeam": { "id": null, "name": "Brazil", "shortName": "Brazil", "tla": "BRA" },
       "awayTeam": { "id": null, "name": "Norway", "shortName": "Norway", "tla": "NOR" },
-      "score": null
+      "score": { "winner": "AWAY_TEAM", "duration": "REGULAR", "fullTime": { "home": 1, "away": 2 } }
     },
     {
-      "id": 270092, "utcDate": "2026-07-05T20:00:00Z", "status": "TIMED", "stage": "LAST_16", "group": null,
+      "id": 270092, "utcDate": "2026-07-05T20:00:00Z", "status": "FINISHED", "stage": "LAST_16", "group": null,
       "homeTeam": { "id": null, "name": "Mexico", "shortName": "Mexico", "tla": "MEX" },
       "awayTeam": { "id": null, "name": "England", "shortName": "England", "tla": "ENG" },
-      "score": null
+      "score": { "winner": "AWAY_TEAM", "duration": "REGULAR", "fullTime": { "home": 2, "away": 3 } }
     },
     {
       "id": 270093, "utcDate": "2026-07-06T16:00:00Z", "status": "TIMED", "stage": "LAST_16", "group": null,
